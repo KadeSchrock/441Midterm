@@ -1,9 +1,8 @@
 from Qdrant.QdrantDB import QdrantDB
 
 def main():
-    # Hard set our database path at root to keep it simple for this project
-    db = QdrantDB(location="QDRANT_DB").create()
-    
+    # NOTE: Hard set our database path at root to keep it simple for this project
+    database = QdrantDB(location="QDRANT_DB").create_database()
 
 if __name__ == "__main__":
     main()
