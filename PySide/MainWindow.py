@@ -3,6 +3,7 @@ import sys
 from PySide6 import QtWidgets
 
 # Import our custom panel classes from their separate files
+from styles import APP_STYLE
 from QdrantResultsPanel import ResultsPanel
 from SearchPanel import SearchPanel
 from AISummaryPanel import SummaryPanel
@@ -64,6 +65,9 @@ class MyWidget(QtWidgets.QWidget):
 if __name__ == "__main__":
     app = QtWidgets.QApplication(sys.argv)
 
+    # Apply the global dark theme
+    app.setStyleSheet(APP_STYLE)
+    
     widget = MyWidget()
     widget.resize(1200, 600)
     widget.show()

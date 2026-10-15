@@ -1,6 +1,6 @@
 
 from PySide6 import QtCore, QtWidgets
-
+from WidgetEffects import add_shadow
 
 class SummaryPanel(QtWidgets.QWidget):
     def __init__(self):
@@ -11,6 +11,7 @@ class SummaryPanel(QtWidgets.QWidget):
         self.title.setAlignment(
             QtCore.Qt.AlignmentFlag.AlignCenter
         )
+        self.title.setObjectName("panelTitle")
 
         # Read-only area for displaying the summary
         self.display = QtWidgets.QTextEdit()
@@ -18,6 +19,8 @@ class SummaryPanel(QtWidgets.QWidget):
         self.display.setPlaceholderText(
             "AI summary will appear here..."
         )
+         # Add a subtle shadow to the results display
+        add_shadow(self.display, blur=16, offset_y=3, opacity=70)
 
         # Arrange widgets vertically
         layout = QtWidgets.QVBoxLayout(self)
