@@ -56,5 +56,5 @@ class Embed:
 
     def get_gpu(self) -> bool:
         return self.__gpu
-    def set_gpu(self, gpu) -> None:
+    def set_gpu(self, gpu: bool) -> None:
         self.__gpu = gpu
