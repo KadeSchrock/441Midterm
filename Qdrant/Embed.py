@@ -1,6 +1,6 @@
 import uuid
 from typing import Any
-from QdrantDB import QdrantDB
+from Qdrant.QdrantDB import QdrantDB
 from qdrant_client import QdrantClient, models
 
 '''

@@ -15,13 +15,14 @@ class QdrantDB:
         self.set_location(location)
 
     def create_database(self) -> QdrantClient:
+        location: str = self.get_location()
         # Simple check to make sure we only create one DB the first time the app is loaded
         # If it already exists we simply return it
-        if os.path.exists(self.get_location()):
-            print(f"Database already exists at {self.get_location()}")
-            return QdrantClient(path=self.get_location())
+        if os.path.exists(location):
+            print(f"Database already exists at {location}")
+            return QdrantClient(path=location)
 
-        database = QdrantClient(path=self.get_location())
+        database: QdrantClient = QdrantClient(path=location)
         database.create_collection(
             QdrantDB.COLLECTION_NAME,
             vectors_config=models.VectorParams(
