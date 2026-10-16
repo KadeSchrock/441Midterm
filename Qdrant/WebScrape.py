@@ -1,5 +1,4 @@
-import requests
-from bs4 import BeautifulSoup
+from trafilatura import fetch_url, extract
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from typing import Any
 
@@ -15,19 +14,16 @@ class WebScrape:
 
     def scrape(self) -> list[dict[str, Any]]:
         url: str = self.get_url()
-        html_dump: requests.Response = requests.get(url)
-        soup: BeautifulSoup = BeautifulSoup(html_dump.content, 'html.parser')
+        fetch: str | None = fetch_url(url)
 
-        # Tags for stuff we don't want to pull into our text that goes into qdrant
-        for tag in soup(["script", "style", "nav", "footer", "header",
-                     "aside", "form", "iframe", "noscript", "svg"]):
-            tag.decompose()
-        text: str = soup.get_text(separator="\n")
+        # output main content and comments as plain text
+        text: str | None = extract(fetch)
+        #print(text)
 
         # Split text into multiple chunks
         # code from https://docs.langchain.com/oss/python/integrations/splitters
         text_splitter: RecursiveCharacterTextSplitter = RecursiveCharacterTextSplitter(chunk_size=900, chunk_overlap=100)
-        chunks: list[str] = text_splitter.split_text(text)
+        chunks: list[str | None] = text_splitter.split_text(text)
         # Convert list of string into the format Embed.py expects
         payload: list[dict[str, Any]] = []
         for i, chunk in enumerate(chunks):

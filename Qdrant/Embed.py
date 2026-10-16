@@ -27,9 +27,7 @@ class Embed:
         payload = self.get_payload()
 
         docs = [models.Document(text=data["document"], model=QdrantDB.MODEL_NAME) for data in payload]
-        # NOTE: id's for now are going to be set to be unique for each url, would need to be changed if not
-        # only entering web scraped data, but keeps it simple for the initial demo to only make it work with webscrape
-        ids = [Embed.create_payload_id(data["source"]) for data in payload]
+        ids = [Embed.create_payload_id(f"{data['source']}#{data['chunk_index']}") for data in payload]
 
         database.upload_collection(
             collection_name=QdrantDB.COLLECTION_NAME,
