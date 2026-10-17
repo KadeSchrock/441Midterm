@@ -15,6 +15,7 @@ class SummaryPanel(QtWidgets.QWidget):
 
         # Read-only area for displaying the summary
         self.display = QtWidgets.QTextEdit()
+        self.display.setObjectName("summaryDisplay")
         self.display.setReadOnly(True)
         self.display.setPlaceholderText(
             "AI summary will appear here..."

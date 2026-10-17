@@ -179,4 +179,128 @@ QTextEdit:disabled {
     color: #777980;
     background-color: #1d1e20;
 }
+
+/* ==========================================
+    SEARCH BAR (rounded, purple)
+    Set objectName("searchInput") /
+    objectName("searchButton")
+    ========================================== */
+
+QLineEdit#searchInput {
+    background-color: #222326;
+    color: #dfe1e5;
+
+    border: 2px solid #5146c8;
+    border-radius: 24px;
+
+    padding: 9px 18px;
+    font-size: 14px;
+
+    selection-background-color: #4542a5;
+    selection-color: #ffffff;
+}
+
+QLineEdit#searchInput:focus {
+    border: 2px solid #8177f0;
+    background-color: #242529;
+}
+
+QPushButton#searchButton {
+    border-radius: 24px;
+    padding: 9px 22px;
+}
+
+/* AI summary field: always-on purple outline,
+   matching the search bar
+   Set objectName("summaryDisplay") */
+
+QTextEdit#summaryDisplay {
+    border: 2px solid #5146c8;
+}
+
+QTextEdit#summaryDisplay:focus {
+    border: 2px solid #8177f0;
+    background-color: #242529;
+}
+
+/* ==========================================
+    SEARCH RESULTS (Google-style list)
+    Set objectName("resultsScroll") on the
+    scroll area, objectName("resultTitle"),
+    objectName("resultUrl"),
+    objectName("resultSnippet") on each
+    result label
+    ========================================== */
+
+QScrollArea#resultsScroll {
+    background-color: transparent;
+    border: none;
+}
+
+QScrollArea#resultsScroll > QWidget > QWidget {
+    background-color: transparent;
+}
+
+QLabel#resultTitle {
+    background-color: transparent;
+    color: #8ab4f8;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+QLabel#resultUrl {
+    background-color: transparent;
+    color: #34a853;
+    font-size: 12px;
+}
+
+QLabel#resultSnippet {
+    background-color: transparent;
+    color: #bdc1c6;
+    font-size: 13px;
+}
+
+/* Rounded box around each result
+   Set objectName("resultCard") on the card widget */
+QWidget#resultCard {
+    background-color: #222326;
+    border: 2px solid #5146c8;
+    border-radius: 12px;
+    padding: 12px 14px;
+}
+
+/* Confidence percent, top-right of each card
+   Set objectName("resultScore") */
+QLabel#resultScore {
+    background-color: transparent;
+    color: #8ab4f8;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+/* Loading indicator shown while a search is running
+   Set objectName("loadingBar") / objectName("loadingText") */
+QProgressBar#loadingBar {
+    background-color: #222326;
+    border: 1px solid #3b3d42;
+    border-radius: 5px;
+}
+
+QProgressBar#loadingBar::chunk {
+    background-color: #5146c8;
+    border-radius: 4px;
+}
+
+QLabel#loadingText {
+    background-color: transparent;
+    color: #a5a7af;
+    font-size: 14px;
+}
+
+QLabel#resultPlaceholder {
+    background-color: transparent;
+    color: #777980;
+    font-size: 14px;
+    padding: 24px 0;
+}
 """
