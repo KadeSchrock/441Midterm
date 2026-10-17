@@ -1,1 +1,3 @@
 QDRANT_DB/
+__pycache__/
+*.pyc

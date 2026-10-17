@@ -18,5 +18,9 @@
 - Chunking: https://docs.langchain.com/oss/python/integrations/splitters
 - Text Extraction: https://trafilatura.readthedocs.io/en/latest/quickstart.html
 
+# AI Usage:
+- Used Deepseek harness with local model (Qwen3.8-27B-UD-Q4_K_M.gguf) for some PySide6 UI work
+- Chat GPT standard web chat for some of the PySide6 work as well
+
 # NOTES:
 ### Anything denoted with <NOTE:> before it in a comment indicates that it is a temporary hardcoded(ish) solution to make it simnpler to get a demo up and running
